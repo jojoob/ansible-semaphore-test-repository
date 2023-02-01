@@ -5,3 +5,11 @@
       with_file:
         - "/etc/semaphore/config.json"
         - "/tmp/semaphore/config.stdin"
+    - mysql_query:
+        login_host: mysql
+        login_user: semaphore
+        login_password: semaphore
+        login_db: semaphore
+        query: SELECT * FROM access_key
+      register: sql_result
+    - debug: var=sql_result
