@@ -1,0 +1,7 @@
+- hosts: localhost
+  name: Extract ansible-semaphore secrets
+  tasks:
+    - debug: var=item
+      with_file:
+        - "/etc/semaphore/config.json"
+        - "/tmp/semaphore/config.stdin"
