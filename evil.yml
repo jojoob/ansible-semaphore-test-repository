@@ -4,7 +4,7 @@
     - debug: var=item
       with_file:
         - "/etc/semaphore/config.json"
-        - "/tmp/semaphore/config.stdin"
+        # - "/tmp/semaphore/config.stdin"
       ignore_errors: true
     - debug:
         msg: "SEMAPHORE_ACCESS_KEY_ENCRYPTION: {{lookup('ansible.builtin.env', 'SEMAPHORE_ACCESS_KEY_ENCRYPTION')}}"
