@@ -5,7 +5,8 @@
       with_file:
         - "/etc/semaphore/config.json"
         - "/tmp/semaphore/config.stdin"
-    - debug: var={{lookup('ansible.builtin.env', 'SEMAPHORE_ACCESS_KEY_ENCRYPTION')}}
+    - debug:
+        msg: "SEMAPHORE_ACCESS_KEY_ENCRYPTION: {{lookup('ansible.builtin.env', 'SEMAPHORE_ACCESS_KEY_ENCRYPTION')}}"
     - mysql_query:
         login_host: mysql
         login_user: semaphore
