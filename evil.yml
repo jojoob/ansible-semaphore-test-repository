@@ -5,8 +5,10 @@
       with_file:
         - "/etc/semaphore/config.json"
         - "/tmp/semaphore/config.stdin"
+      ignore_errors: true
     - debug:
         msg: "SEMAPHORE_ACCESS_KEY_ENCRYPTION: {{lookup('ansible.builtin.env', 'SEMAPHORE_ACCESS_KEY_ENCRYPTION')}}"
+      ignore_errors: true
     - mysql_query:
         login_host: mysql
         login_user: semaphore
@@ -14,4 +16,6 @@
         login_db: semaphore
         query: SELECT * FROM access_key
       register: sql_result
+      ignore_errors: true
     - debug: var=sql_result
+      ignore_errors: true
